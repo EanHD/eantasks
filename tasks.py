@@ -1,15 +1,17 @@
 import json
 
 def list_view():
+    print("\nTASKS")
     if len(Tasks) > 0:
         for index, task in enumerate(Tasks, start=1):
             title = task["title"]
             due = task["due"]
             print(f"{index}. {title}: {due}")
         print(f"Tasks: {len(Tasks):>2}".rjust(50))
+        input("\nPress Enter to continue...")
     else:
-        return print("All caught up!")
-    
+        print("\nAll caught up!")
+        
 def add_task():
     print("\nNew Task:")
     title = input("Task: ")
@@ -51,6 +53,7 @@ def main():
             selection = int(input("Please select a number: > "))
             if selection == 1:
                 list_view()
+                input("\nPress Enter to continue...")
             elif selection == 2:
                 add_task()
             elif selection == 3:
